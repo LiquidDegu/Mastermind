@@ -5,10 +5,10 @@ public class Main {
 
 	public static void main(String[] args) {
 		/*
-		 * Mastermind ist ein Spiel mit normalerweise 6 Farben und 4 Plätze wo man diese anordnen kann
-		 * Es gibt auch Versionen mit mehr Farben oder mit mehr Löchern
+		 * Mastermind ist ein Spiel mit normalerweise 6 Farben und 4 Plätzen wo man diese anordnen muss
+		 * Es gibt auch Versionen mit mehr Farben oder mit mehr Plätzen
 		 * 
-		 * Ziel ist es Variable Anzahl an Löchern und Farben zu haben ggf. mit Grafischem Interface
+		 * Ziel ist es variable Anzahl an Plätzen und Farben zu haben ggf. mit grafischen Interface
 		 * Zusatz wäre ein 2 Spieler modi???
 		 * 
 		 * 
@@ -25,10 +25,10 @@ public class Main {
 		
 		//Abfrage ob man unter den "Normalen" Regeln Spielen möchte oder ob man die Regeln ändern möchte
 		
-		System.out.println("Wollen sie mit den normalen Regeln Spielen (6 Farben 4 Löcher und 9 Versuchen)    J/N");
+		System.out.println("Wollen sie mit den normalen Regeln spielen (6 Farben 4 Löcher und 9 Versuche)    J/N");
 		String Regeln = sc.nextLine();
 		if (Regeln.toUpperCase().contains("N")) {
-			System.out.println("Wie viele Farben Wollen sie haben?");
+			System.out.println("Wie viele Farben wollen sie haben?");
 				NumCol = sc.nextInt();
 			
 			System.out.println("Wie viele Löcher wollen sie haben?");
@@ -37,7 +37,7 @@ public class Main {
 			System.out.println("Wie viele Versuche wollen sie haben?");
 				NumTrys = sc.nextInt();
 			
-			System.out.println("Wollen sie die Einstellungen Verwenden?"); // Abfrage ob man die geschriebenen EInstellungen Speichern möchte falls nicht zurück auf Standard
+			System.out.println("Wollen sie die Einstellungen verwenden?"); // Abfrage ob man die geschriebenen Einstellungen speichern möchte falls nicht zurück auf Standard
 				String SaveSettings = sc.nextLine();
 					if (SaveSettings.toUpperCase().contains("N")) {
 						NumTrys = 9;
@@ -49,14 +49,14 @@ public class Main {
 		int [] Farbkombi = new int[NumRows];
 		int [] Ratekombi = new int[NumRows];
 		//Abfrage ob man gegen den Computer oder einen Menshcen spielt damit ggf. der Computer den Farbcode generiert
-		System.out.println("EinzelSpieler oder Mehrspieler");
+		System.out.println("Einzelspieler oder Mehrspieler");
 		String DoYouHaveFriends = sc.nextLine();
 		if (DoYouHaveFriends.toUpperCase().contains("M")) {			// M weil der Buchstabe nur in Mehrspieler vorkommt
 			
 			System.out.println("Trage bitte für deinen Farbcode ein den Spieler 2 Lösen muss");
 			System.out.println("Der Farbcode hat " + NumRows + " stellen und du kannst aus " + NumCol + " auswählen");
 			System.out.println("Bitte schreibe jede Farbe einzelnd und anstelle von Farben verwendest du bitte Zahlen");
-			System.out.println("Die Zahlen die du wählst sollten kleiner oder gleich deiner Maximalen Farben sein siehe mehr dazu im LOG"); //Schreibe ein Log zu den verhaltensweisen
+			System.out.println("Die Zahlen die du wählst sollten kleiner oder gleich deiner maximalen Farben sein siehe mehr dazu im LOG"); //Schreibe ein Log zu den verhaltensweisen
 		
 			for (int EingegebeneFarben = 1; EingegebeneFarben <= NumRows; EingegebeneFarben++) {
 					//Array für die Farbcombination
@@ -64,7 +64,7 @@ public class Main {
 				int ArrayInput = EingegebeneFarben -1;
 				Farbkombi[ArrayInput] = sc.nextInt();
 				if (Farbkombi[ArrayInput] > NumColl) {
-					System.out.println("Bitte geben sie Ausschließlich Farben von 0 bis " + NumColl + " ein");
+					System.out.println("Bitte geben sie ausschließlich Farben von 0 bis " + NumColl + " ein");
 					Farbkombi[ArrayInput] = sc.nextInt();
 				}
 			
@@ -105,7 +105,7 @@ public class Main {
 				int ArrayInput = EingegebeneFarben -1;
 				Ratekombi[ArrayInput] = sc.nextInt();
 				if (Ratekombi[ArrayInput] > NumColl) {
-					System.out.println("Bitte geben sie Ausschließlich Farben von 0 bis " + NumColl + " ein");
+					System.out.println("Bitte geben sie ausschließlich Farben von 0 bis " + NumColl + " ein");
 					Ratekombi[ArrayInput] = sc.nextInt();
 				}
 			}
@@ -146,13 +146,13 @@ public class Main {
 			}
 			
 			if (Black == NumRows) {
-				System.out.println("Sie haben alles Richtig geraten und haben gewonnen!");
+				System.out.println("Sie haben alles richtig geraten und haben gewonnen!");
 				break;
 				
 			}
 			
 			
-			System.out.println("Sie haben " + White + "weiße Kugeln und " + Black + "Schwarze Kugeln");
+			System.out.println("Sie haben " + White + "weiße Kugeln und " + Black + "schwarze Kugeln");
 			
 			
 		}
